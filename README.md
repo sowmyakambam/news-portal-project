@@ -1,0 +1,1 @@
+In this project, data has been scraped from the set of 3 urls (like yahoo, bing, askme)
