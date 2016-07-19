@@ -1,0 +1,43 @@
+<html>
+<head>
+ <script type="text/javascript">
+    function writeCode() {
+        var src1 = document.getElementById('src1').value,
+            src2 = document.getElementById('src2').value,
+            src3 = document.getElementById('src3').value,
+        var lnk1 = document.getElementById('lnk1').value,
+            lnk2 = document.getElementById('lnk2').value,
+            lnk3 = document.getElementById('lnk3').value,
+        outputValue = '<span style="color: #888888; font-size: xx-small;">Sources: </span>' + '<a href="' + lnk1 + '"target="_blank"><span style="color: #2200fc; font-size: xx-small;">' + src1 + '</span></a>'  + ', ' + '<a href="' + lnk2 + '"target="_blank"><span style="color: #2200fc; font-size: xx-small;">' + src2 + '</span></a>'
+        document.getElementById('outputArea').value = outputValue;
+
+        if (src3.length + lnk3.length != 0){
+            outputValue2 = ', ' + '<a href="' + lnk3 + '"target="_blank"><span style="color: #2200fc; font-size: xx-small;">' + src3 + '</span></a>'
+            document.getElementById('outputArea2').value = outputValue2;
+        }
+        else {
+            document.getElementById('outputArea2').value = ' '
+        }
+    console.log(writeCode);
+</script>
+</head>
+<body>
+    <form name="sources">
+            Source 1 <input type="text" id="src1"/>
+                Link 1 <input type="text" id="lnk1"/></br>
+            Source 2 <input type="text" id="src2"/>
+                Link 2 <input type="text" id="lnk2"/></br>
+            Source 3 <input type="text" id="src3"/>
+                Link 3 <input type="text" id="lnk3"/></br>
+            <input type="button" value="Write my code!" onclick="writeCode();"/>
+            <input type="button" value="Cite another article!" onClick="window.location.reload()"/></br>
+
+            <textarea style="width:600px;height:100px;" name="outputForm">
+                <p id="outputArea"></p>
+                <p id="outputArea2"><p>
+                <p id="outputArea3"></p>
+            </textarea>
+    </form>
+</div>
+ </body>
+ </html>
