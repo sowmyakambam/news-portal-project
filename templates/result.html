@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+  <script type="text/javascript" src="/static/Storage.js"></script>
+
+  <style type="text/css">
+    #imaginary_container{
+    margin-top:20%; /* Don't copy this */
+    }
+    .stylish-input-group .input-group-addon{
+    background: white !important; 
+    }
+    .stylish-input-group .form-control{
+	   border-right:0; 
+	   box-shadow:0 0 0; 
+	   border-color:#ccc;
+    }
+    .stylish-input-group button{
+    border:0;
+    background:transparent;
+    }
+  </style>
+
+
+</head>
+
+   <body style="background-color: grey" onload="doShowAll()">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        
+         
+          <h1 style="color: white;  font-family: Blackadder ITC; font-size: 400%" align="center" >News Portal</h1>
+        
+        <!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!--<form action = "http://localhost:5000/result" method = "POST">
+
+        <div class="container">
+	       <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div id="imaginary_container"> 
+                        <div class="input-group stylish-input-group" style="padding: 50px;">
+                
+                        <input type="text" class="form-control" name="name"  placeholder="Search" >
+                        <span class="input-group-addon">
+                        <button type="submit" name="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                        </span>
+                    
+                        </div>
+                     </div>
+                </div>
+	       </div>
+        </div>
+	
+    </form>-->
+
+    <div class="container">
+     
+      <div style="padding: 100px;">
+   
+         <h3 style="font-family: Comic Sans MS;"> The News Links are : </h3>
+         <br>
+         
+         <br>
+
+         {% for key, value in result.iteritems() %}
+
+               <a href={{value}} style="color: #00008B; font-size: 150%">{{value}}</a>
+               <br>
+               <br>
+                <h5 style="font-family: Comic Sans MS;"><b>Comment box: </b></h5>
+               {% if key == "11" %}
+                <form action = "{{ url_for('addrec') }}" method = "POST">
+                <table>
+               	<tr>
+                 <input type="hidden" name="a" value={{key}}>
+               	 <td>Name     :</td><td> <input type="text" name="named"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data"></textarea></td>
+                 <input type="hidden" name="link" value={{value}}>
+                </tr>
+                </table>
+          		  <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+          		  <ul><input type="submit" name="search" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows1 %}
+                  <tr>
+                  <td>{{row["name"]}}</td>
+                  
+                  <td>{{row["comment"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+              {% elif key == "622" %}
+                <form action = "{{ url_for('addrec1') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a1" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named1"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data1"></textarea></td>
+                 <input type="hidden" name="link1" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search1" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows %}
+                  <tr>
+
+                  <td>{{row["name1"]}}</td>
+                  <td>{{row["comment1"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                
+                {% elif key == "3" %}
+                <form action = "{{ url_for('addrec2') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a2" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named2"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data2"></textarea></td>
+                 <input type="hidden" name="link2" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search2" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows2 %}
+                  <tr>
+
+                  <td>{{row["name2"]}}</td>
+                  <td>{{row["comment2"]}}</td>
+                 
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                  {% elif key == "1" %}
+                <form action = "{{ url_for('addrec3') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a3" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named3"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data3"></textarea></td>
+                 <input type="hidden" name="link3" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search3" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows3 %}
+                  <tr>
+
+                  <td>{{row["name3"]}}</td>
+                  <td>{{row["comment3"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                  {% elif key == "21" %}
+                <form action = "{{ url_for('addrec4') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a4" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named4"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data4"></textarea></td>
+                 <input type="hidden" name="link4" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search4" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows4 %}
+                  <tr>
+
+                  <td>{{row["name4"]}}</td>
+                  <td>{{row["comment4"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                  {% elif key == "522" %}
+                <form action = "{{ url_for('addrec5') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a5" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named5"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data5"></textarea></td>
+                 <input type="hidden" name="link5" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search5" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows5 %}
+                  <tr>
+
+                  <td>{{row["name5"]}}</td>
+                  <td>{{row["comment5"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                  {% elif key == "2" %}
+                <form action = "{{ url_for('addrec6') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a6" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named6"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data6"></textarea></td>
+                 <input type="hidden" name="link6" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search6" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows6 %}
+                  <tr>
+
+                  <td>{{row["name6"]}}</td>
+                  <td>{{row["comment6"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                  {% elif key == "31" %}
+                <form action = "{{ url_for('addrec7') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a7" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named7"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data7"></textarea></td>
+                 <input type="hidden" name="link7" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search7" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows7 %}
+                  <tr>
+
+                  <td>{{row["name7"]}}</td>
+                  <td>{{row["comment7"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+                  {% elif key == "422" %}
+                <form action = "{{ url_for('addrec8') }}" method = "POST">
+                <table>
+                <tr>
+                 <input type="hidden" name="a8" value={{key}}>
+                 <td>Name     :</td><td> <input type="text" name="named8"></td></tr><tr></tr>
+                 <tr><td>Comments :</td><td><textarea id= "title" rows="1" cols="50" name="data8"></textarea></td>
+                 <input type="hidden" name="link8" value={{value}}>
+
+                </tr>
+                </table>
+                <ul></ul>
+                {%for i in name%}
+                <input type="hidden" name="name" value={{i}}>
+                <ul><input type="submit" name="search8" value="Post a comment" style="font-family: Comic Sans MS; "></input></ul>
+                  {%endfor%}
+                 </form>
+                  <table border = 1>
+                  <thead>
+                  <td>Name</td>
+                  <td>Comments</td>
+                  
+                  </thead>
+         
+                  {% for row in rows8 %}
+                  <tr>
+
+                  <td>{{row["name8"]}}</td>
+                  <td>{{row["comment8"]}}</td>
+                  
+               
+                  </tr>
+                  {% endfor %}
+                  </table>
+
+
+
+               {%endif%}
+                  
+         {% endfor %}
+
+         <!--{{result['1']}}-->
+
+
+         </div>
+       
+         <h2 style=" color:white"><a href = "\"><input type="button" value="go back to home page"></a></h2>
+                
+        
+          
+     
+        </div>
+
+      </form>
+    </div>
+      
+<script >
+var x=document.getElementbyId("searchname").value;
+  var display=document.getElementbyId("searchnamedisplay");
+        display.innerHTML=x;
+</script>
+      <!--<script type="text/javascript">$('#button2').click(function(){ $('#button1').click('#searchname') });</script>-->
+   </body>
+
+
+</html>
