@@ -464,7 +464,9 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students")
+            s = "select * from students where url="+"\""+m['11']+"\""
+            print s
+            cur.execute(s)
             rows1 = cur.fetchall();
             
       person=[sp]
@@ -476,7 +478,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students1")
+            s1 = "select * from students1 where url1="+"\""+m['622']+"\""
+            cur.execute(s1)
             rows = cur.fetchall();
             
       person=[sp] 
@@ -487,7 +490,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students2")
+            s2 = "select * from students2 where url2="+"\""+m['3']+"\""
+            cur.execute(s2)
             rows2 = cur.fetchall();
             
       person=[sp]
@@ -498,7 +502,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students3")
+            s3 = "select * from students3 where url3="+"\""+m['1']+"\""
+            cur.execute(s3)
             rows3 = cur.fetchall();
             
       person=[sp]
@@ -509,7 +514,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students4")
+            s4 = "select * from students4 where url4="+"\""+m['21']+"\""
+            cur.execute(s4)
             rows4 = cur.fetchall();
             
       person=[sp]
@@ -520,7 +526,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students5")
+            s5 = "select * from students5 where url5="+"\""+m['522']+"\""
+            cur.execute(s5)
             rows5 = cur.fetchall();
             
       person=[sp]
@@ -531,7 +538,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students6")
+            s6 = "select * from students6 where url6="+"\""+m['2']+"\""
+            cur.execute(s6)
             rows6 = cur.fetchall();
             
       person=[sp]
@@ -542,7 +550,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students7")
+            s7 = "select * from students7 where url7="+"\""+m['31']+"\""
+            cur.execute(s7)
             rows7 = cur.fetchall();
             
       person=[sp]
@@ -553,7 +562,8 @@ def res():
             con = sqlite3.connect("news.db")
             con.row_factory = sqlite3.Row
             cur = con.cursor()
-            cur.execute("select * from students8")
+            s8 = "select * from students8 where url8="+"\""+m['422']+"\""
+            cur.execute(s8)
             rows8 = cur.fetchall();
             
       person=[sp]
